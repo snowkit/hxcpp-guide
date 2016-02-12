@@ -41,6 +41,8 @@ More details on the specification and formatting will follow.
 
 ## contributing
 
-_Please_ feel free to ask questions, post ideas and suggestions, corrections and documents to [issue list](https://github.com/snowkit/hxcpp-guide/issues). **Please keep ALL discussions for the guide on this repo.**
+_Please_ feel free to ask questions, post ideas and suggestions, corrections and documents to [issue list](https://github.com/snowkit/hxcpp-guide/issues). 
+
+**Please keep ALL discussions for the guide on this repo.**
 
 For submissions and corrections please feel free to submit a pull request. 
