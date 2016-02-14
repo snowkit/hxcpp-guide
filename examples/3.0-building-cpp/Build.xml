@@ -1,0 +1,11 @@
+<!-- https://github.com/snowkit/hxcpp-guide/ -->
+<xml>
+    <files id="sources">
+        <compilerflag value="-DBE_LESS_EXCITED" if="serious"/>
+        <file name="example.cpp" />
+    </files>
+
+    <target id="default" tool="linker" toolid="exe" output="example">
+        <files id="sources"/>
+    </target>
+</xml>
