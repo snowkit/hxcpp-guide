@@ -1,0 +1,5 @@
+-main Main.hx
+-cpp out
+
+# Runtime needs the ndll
+-cmd cp ../cpp/ndll/Linux64/libforeign.ndll out
