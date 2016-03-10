@@ -53,7 +53,7 @@
 
 	<outdir name="ndll/Linux" if="HXCPP_M32" />
 
-	<flag value="-Wl,-rpath,'$ORIGIN/:/lib:/usr/lib'" />
+	<flag value="-Wl,-rpath,'/lib:/usr/lib'" />
 </target>
 
 <target id="default">
