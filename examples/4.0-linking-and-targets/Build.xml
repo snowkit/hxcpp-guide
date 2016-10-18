@@ -1,0 +1,17 @@
+<!-- https://github.com/snowkit/hxcpp-guide/ -->
+<xml>
+
+    <set name="LINK_TOOLID" value="exe"/>
+    <set name="LINK_TOOLID" value="dll" if="dynamic_link"/>
+    <set name="LINK_TOOLID" value="static_link" if="static_link"/>
+
+    <files id="sources">
+        <compilerflag value="-DBE_LESS_EXCITED" if="serious"/>
+        <file name="example.cpp" />
+    </files>
+
+    <target id="default" tool="linker" toolid="${LINK_TOOLID}" output="${LIBPREFIX}example${DBG}${LIBEXTRA}">
+        <outdir name="${BINDIR}"/>
+        <files id="sources"/>
+    </target>
+</xml>
