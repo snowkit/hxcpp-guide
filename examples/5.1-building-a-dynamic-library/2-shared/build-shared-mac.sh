@@ -1,0 +1,1 @@
+clang++ -lempty -L../1-lib/cpp/ -I../1-lib/cpp/include/ -I<HXCPP_PATH>/include -dynamiclib -stdlib=libstdc++ -o libEmpty.dylib empty.cpp
