@@ -1,0 +1,63 @@
+<xml>
+
+<!-- define input cpp and output lib name -->
+
+<files id="files">
+	<compilerflag value="-Iinclude"/>
+	<file name="Foreign.cpp" />
+</files>
+
+<set name="LIB_NAME" value="libforeign" />
+
+<!-- the below is mostly boilerplate -->
+
+<include name="${HXCPP}/build-tool/BuildCommon.xml"/>
+
+<section if="windows">
+	<include name="${HXCPP}/toolchain/msvc-toolchain.xml"/>
+</section>
+
+<section if="macos">
+	<set name="HXCPP_CLANG" value="1" />
+	<include name="${HXCPP}/toolchain/mac-toolchain.xml"/>
+</section>
+
+<section if="linux">
+	<include name="${HXCPP}/toolchain/linux-toolchain.xml"/>
+</section>
+
+<compiler id="default">
+	<objdir value="obj/32" if="HXCPP_M32"/>
+	<objdir value="obj/64" if="HXCPP_M64"/>
+</compiler>
+
+<!-- osx and windows -->
+<target id="NDLL" output="${LIB_NAME}" tool="linker" toolid="dll" unless="linux">
+	<ext value=".ndll" />
+	<files id="files" />
+
+	<outdir name="ndll/Mac64" if="macos HXCPP_M64" />
+
+	<outdir name="ndll/Mac" if="macos HXCPP_M32" />
+
+	<outdir name="ndll/Windows" if="windows" />
+</target>
+
+<!-- linux -->
+
+<target id="NDLL" output="${LIB_NAME}" tool="linker" toolid="dll" if="linux">
+	<ext value=".ndll" />
+	<files id="files" />
+
+	<outdir name="ndll/Linux64" if="HXCPP_M64" />
+
+	<outdir name="ndll/Linux" if="HXCPP_M32" />
+
+	<flag value="-Wl,-rpath,'/lib:/usr/lib'" />
+</target>
+
+<target id="default">
+	<target id="NDLL" />
+</target>
+
+</xml>
